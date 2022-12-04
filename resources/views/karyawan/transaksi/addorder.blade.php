@@ -29,7 +29,7 @@
                           <select name="customer_id" id="customer_id" class="form-control select2 @error('customer_id') is-invalid @enderror" >
                               <option value="">-- Pilih Customer --</option>
                               @foreach ($customer as $customers)
-                                  <option value="{{$customers->id}}" {{old('customer_id') == $customers->id ? 'selected' : ''}} >{{$customers->name}}</option>
+                                  <option value="{{$customers->id}}" {{old('customer_id') == $customers->id ? 'selected' : ''}} {{$customer_id == null ?'' : 'selected'}} >{{$customers->name}}</option>
                               @endforeach
                           </select>
                           @error('customer_id')
@@ -54,7 +54,7 @@
                   <div class="col-md-3">
                     <div class="form-group has-success">
                         <label class="control-label">Berat Pakaian</label>
-                        <input type="text" class="form-control form-control-danger @error('kg') is-invalid @enderror" value=" {{old('kg')}} " name="kg" placeholder="Berat Pakaian" autocomplete="off" >
+                        <input id="berat" type="text" class="form-control form-control-danger @error('kg') is-invalid @enderror" value=" {{old('kg')}} " name="kg" placeholder="Berat Pakaian" autocomplete="off" >
                         @error('kg')
                           <span class="invalid-feedback text-danger" role="alert">
                               <strong>{{ $message }}</strong>
@@ -100,9 +100,9 @@
 
                 <div class="col-md-3">
                   <div class="orm-group has-success">
-                      <label class="control-label">Pilih Pakaian</label>
-                      <select id="id" name="harga_id" class="form-control select2 @error('harga_id') is-invalid @enderror" >
-                          <option value="">-- Jenis Pakaian --</option>
+                      <label class="control-label">Pilih Jenis Layanan</label>
+                      <select id="jenis_layanan" name="harga_id" class="form-control select2 @error('harga_id') is-invalid @enderror" >
+                          <option value="">-- Jenis Layanan --</option>
                           @foreach($jenisPakaian as $jenis)
                             <option value="{{$jenis->id}}" {{old('harga_id') == $jenis->id ? 'selected' : '' }} >{{$jenis->jenis}}</option>
                           @endforeach
@@ -114,16 +114,22 @@
                       @enderror
                   </div>
                 </div>
-                <div class="col-md-2">
-                    <span id="select-hari"></span>
-                </div>
-                <div class="col-md-2">
-                    <span id="select-harga"></span>
-                </div>
+                  <div class="col-md-2">
+                      <div class="form-group has-success">
+                          <label class="control-label">Harga</label>
+                          <input id="harga" type="number" name="harga" class="form-control" value="0" readonly>
+                      </div>
+                  </div>
+                  <div class="col-md-2">
+                      <div class="form-group has-success">
+                          <label class="control-label">Hari</label>
+                          <input id="hari" type="number" name="hari" class="form-control" value="0" readonly>
+                      </div>
+                  </div>
                 <div class="col-md-2">
                   <div class="form-group has-success">
                       <label class="control-label">Disc</label>
-                      <input type="number" name="disc" placeholder="Tulis Disc" class="form-control @error('disc') is-invalid @enderror">
+                      <input id="discount" type="number" name="disc" value="0" placeholder="Tulis Disc" class="form-control @error('disc') is-invalid @enderror">
                       @error('disc')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -132,7 +138,11 @@
                   </div>
                 </div>
               </div>
+                <hr/>
+                <div class="text-right">
+                    <h1>Total : <span id="total">0</span></h1>
 
+                </div>
                 <input type="hidden" name="tgl">
                 <!--/row-->
             </div>
@@ -163,27 +173,40 @@
 @section('scripts')
 <script type="text/javascript">
     // Filter Harga
-    $(document).ready(function() {
-       var id = $("#id").val();
-            $.get('{{ Url("listhari") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id}, function(resp){
-            $("#select-hari").html(resp);
-            $.get('{{ Url("listharga") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id}, function(resp){
-            $("#select-harga").html(resp);
-        });
-        });
+    function calculateTotal(){
+        console.log("Calculate");
+        console.log("Berat "+$("#berat").val());
+        console.log("Discount "+$("#discount").val());
+        console.log("Harga "+$("#harga").val());
+
+        var total = ($("#harga").val() *  $("#berat").val()) - $("#discount").val();
+
+        console.log(total);
+        $("#total").text(Number(total).toLocaleString());
+    }
+
+    $("#berat").keyup(function (){
+        calculateTotal()
     });
 
-    $(document).on('change', '#id', function (e) {
-      var id = $(this).val();
-      $.get('{{ Url("listhari") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id}, function(resp){
-        $("#select-hari").html(resp);
-      });
+    $("#discount").keyup(function (){
+        calculateTotal()
     });
 
-    $(document).on('change', '#id', function (e) {
+    $("#jenis_layanan").change(function (){
         var id = $(this).val();
-        $.get('{{ Url("listharga") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id}, function(resp){
-            $("#select-harga").html(resp);
+        $.ajax({
+            type	: 'GET',
+            url		: '{{ Url("listharga") }}',
+            data	: {'_token': $('meta[name=csrf-token]').attr('content'),id:id},
+            dataType: "json",
+            success	: function (response){
+                $("#harga").val(response.data.harga);
+                $("#hari").val(response.data.hari);
+                calculateTotal();
+            },
+            complete: function () {},
+            error: function (xhr, thrownError, err) {}
         });
     });
 </script>
