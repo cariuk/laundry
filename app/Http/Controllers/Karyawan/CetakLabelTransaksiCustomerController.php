@@ -11,26 +11,12 @@ class CetakLabelTransaksiCustomerController extends Controller
 {
     function request(Request $request)
     {
-        $content = base64_encode( 'CetakLabelLaundry|' . $request->url . '|XP-80C|' . (!isset($params["COPIES"])? '1' : ($params["COPIES"] > 20 ? 5 : $params["COPIES"])) . '|');
-        $result = [
-            "status" => 200,
-            "service" => "printerservices",
-            "url" => $request->url,
-            "content" => $content,
-            "decode" => base64_decode($content),
-        ];
-
-        return response()->json($result);
-    }
-
-    function index($transaksi)
-    {
         $invoice = transaksi::with('price')->with('customers')
-            ->where('id', $transaksi)
+            ->where('id', $request->transaksi_id)
             ->first();
-
         $path = storage_path('app/template/CetakLabelCucianFormat1.docx');
-        $output = storage_path('app/output/CetakLabelCucianFormat1.docx');
+        $content = base64_encode( 'CetakThermal|' . $request->url . '|CetakThermal|1|');
+
         $templateProcessor = new TemplateProcessor($path);
 
         $templateProcessor->setValues([
@@ -44,10 +30,27 @@ class CetakLabelTransaksiCustomerController extends Controller
             'harga' => $invoice->harga_akhir,
         ]);
 
+        $output = storage_path('app/output/CetakLabelCucianFormat1.docx');
         $templateProcessor->saveAs($output);
+
+        $result = [
+            "status" => 200,
+            "service" => "printerservices",
+            "url" => $request->url,
+            "content" => $content,
+            "decode" => base64_decode($content),
+        ];
+
+        return response()->json($result);
+    }
+
+    function index($transaksi)
+    {
+        $output = storage_path('app/output/CetakLabelCucianFormat1.docx');
         $data = file_get_contents($output);
+
         $content = base64_encode($data);
-        unlink($output);
+
         return response()->json([
             "content" => $content
         ]);

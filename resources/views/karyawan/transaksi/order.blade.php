@@ -78,7 +78,7 @@
                               @endif
                             @endif
 
-                            <button data-url="{{url('cetak', $item->id)}}" class="cetak-label btn btn-sm btn-info" style="color:white">Cetak Label</button>
+                            <button data-id="{{$item->id}}" data-url="{{url('cetak', $item->id)}}" class="cetak-label btn btn-sm btn-info" style="color:white">Cetak Label</button>
                         </td>
                     </tr>
                     <?php $no++; ?>
@@ -135,6 +135,7 @@ $(document).ready(function() {
             $.ajax({
                 url: "{{route('cetak.request')}}",
                 data: {
+                    transaksi_id: data.id,
                     url: data.url
                 },
                 type: "GET",
