@@ -137,7 +137,7 @@ $(document).ready(function() {
                 type	: "GET",
                 dataType: "json",
                 success	: function(response){
-                    window.location.assign(response.service+":" +response.content)
+                    window.location.assign("printerservice:" +response.content)
                 },
             });
             return false;
