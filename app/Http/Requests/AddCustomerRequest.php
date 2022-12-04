@@ -25,7 +25,6 @@ class AddCustomerRequest extends FormRequest
     {
         return [
           'name'                  => 'required|max:25',
-          'email'                 => 'required|unique:users',
           'alamat'                => 'required',
           'no_telp'               => 'required|unique:users',
         ];
@@ -37,9 +36,6 @@ class AddCustomerRequest extends FormRequest
         'name.required'                 => 'Nama tidak boleh kosong.',
         'name.unique'                   => 'Nama sudah digunakan.',
         'name.max'                      => 'Nama tidak boleh lebih dari 50 karakter.',
-        'email.required'                => 'Email tidak boleh kosong.',
-        'email.unique'                  => 'Email sudah digunakan.',
-        'email.max'                     => 'Email tidak boleh lebih dari 50 karakter.',
         'alamat.required'               => 'Alamat tidak boleh kosong.',
         'alamat.max'                    => 'Alamat tidak boleh lebih dari 50 karakter.',
         'no_telp.required'              => 'Nomor Telepon tidak boleh kosong.'

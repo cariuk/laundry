@@ -67,7 +67,7 @@ Route::middleware('auth')->group(function () {
   Route::prefix('/')->middleware('role:Karyawan')->group(function () {
     Route::resource('pelayanan','Karyawan\PelayananController');
     // Transaksi
-    Route::get('add-order','Karyawan\PelayananController@addorders');
+    Route::get('add-order/{customer?}','Karyawan\PelayananController@addorders');
     Route::get('update-status-laundry','Karyawan\PelayananController@updateStatusLaundry');
 
     // Customer

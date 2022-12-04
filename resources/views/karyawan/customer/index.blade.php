@@ -22,9 +22,8 @@
                     <tr align="center" style="color:black; font-weight:bold">
                         <th>#</th>
                         <th>Nama</th>
-                        <th>Email</th>
-                        <th>Alamat</th>
                         <th>No Telpon</th>
+                        <th>Alamat</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -34,11 +33,11 @@
                     <tr align="center" style="color:black;">
                         <td>{{$no}}</td>
                         <td>{{$item->name}}</td>
-                        <td>{{$item->email}}</td>
-                        <td>{{$item->alamat}}</td>
                         <td>{{$item->no_telp}}</td>
+                        <td>{{$item->alamat}}</td>
                         <td>
                           <a href=" {{url('customers', $item->id)}} " class="btn btn-sm btn-primary" style="color:white">Detail</a>
+                          <a href=" {{url('add-order', $item->id)}} " class="btn btn-sm btn-info" style="color:white">Order</a>
                         </td>
                     </tr>
                     <?php $no++; ?>
