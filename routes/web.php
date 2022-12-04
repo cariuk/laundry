@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function () {
   // Modul Karyawan
   Route::prefix('/')->middleware('role:Karyawan')->group(function () {
     Route::resource('pelayanan','Karyawan\PelayananController');
+      Route::get('cetak/request','Karyawan\CetakLabelTransaksiCustomerController@request')->name("cetak.request");
       Route::get('cetak/{transaksi}','Karyawan\CetakLabelTransaksiCustomerController@index');
 
       // Transaksi

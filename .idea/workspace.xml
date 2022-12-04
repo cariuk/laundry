@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="feat: Update Cetak Label Cetak Langsung">
+    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="fix: cetak langsung">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/karyawan/transaksi/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/karyawan/transaksi/order.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670127083232</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix: cetak langsung">
+      <created>1670127162297</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670127162297</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,6 +299,7 @@
     <MESSAGE value="update information" />
     <MESSAGE value="feat: Cetak Label" />
     <MESSAGE value="feat: Update Cetak Label Cetak Langsung" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Update Cetak Label Cetak Langsung" />
+    <MESSAGE value="fix: cetak langsung" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: cetak langsung" />
   </component>
 </project>
