@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="fix: cetak langsung">
+      <change afterPath="$PROJECT_DIR$/.deploy/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/config/crontab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/config/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/config/php/local.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/config/supervisor.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/entrypoint.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/karyawan/transaksi/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/karyawan/transaksi/order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670127162297</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix: cetak langsung">
+      <created>1670127781473</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670127781473</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
