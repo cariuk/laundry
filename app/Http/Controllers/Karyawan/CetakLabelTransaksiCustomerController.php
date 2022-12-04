@@ -24,13 +24,13 @@ class CetakLabelTransaksiCustomerController extends Controller
             'nama' => $invoice->customers->name,
             'alamat' => $invoice->customers->alamat,
             'no_telp' => $invoice->customers->no_telp,
-            'tanggal_masuk' => $invoice->tgl_transaksi,
+            'tanggal_masuk' => $invoice->created_at,
             'jenis_layanan' => $invoice->price->jenis,
             'berat' => $invoice->kg,
             'harga' => $invoice->harga_akhir,
         ]);
 
-        header("Content-Disposition: attachment; filename=template.docx");
+        header("Content-Disposition: attachment; filename=cetak_label_".time().".docx");
 
         $templateProcessor->saveAs('php://output');
     }

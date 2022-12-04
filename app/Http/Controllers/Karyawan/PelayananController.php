@@ -27,6 +27,9 @@ class PelayananController extends Controller
     // Proses simpan order
     public function store(AddOrderRequest $request)
     {
+        /*Cek*/
+        $hargas = harga::where("id",$request->harga_id)->first();
+
         try {
             DB::beginTransaction();
             $order = new transaksi();
@@ -39,8 +42,10 @@ class PelayananController extends Controller
             $order->customer = namaCustomer($order->customer_id);
             $order->hari = $request->hari;
             $order->kg = $request->kg;
-            $order->harga = $request->harga;
+            $order->harga = $hargas->harga;
             $order->disc = $request->disc;
+
+            /*Calculate*/
             $hitung = $order->kg * $order->harga;
             if ($request->disc != NULL) {
                 $disc = ($hitung * $order->disc) / 100;

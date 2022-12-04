@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="update information">
+    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="feat: Cetak Label">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/karyawan/transaksi/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/karyawan/transaksi/order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/PelayananController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/PelayananController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670120188473</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: Cetak Label">
+      <created>1670124391857</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670124391857</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +254,7 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="faet: memisahkan table customer dan user, tambah order melalui menu customer" />
     <MESSAGE value="update information" />
-    <option name="LAST_COMMIT_MESSAGE" value="update information" />
+    <MESSAGE value="feat: Cetak Label" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Cetak Label" />
   </component>
 </project>
