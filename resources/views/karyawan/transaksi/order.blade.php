@@ -78,7 +78,7 @@
                               @endif
                             @endif
 
-                            <a href="{{url('cetak', $item->id)}}" target="_blank" class="btn btn-sm btn-info" style="color:white">Cetak Label</a>
+                            <button data-url="{{url('cetak', $item->id)}}" class="cetak-label btn btn-sm btn-info" style="color:white">Cetak Label</button>
                         </td>
                     </tr>
                     <?php $no++; ?>
@@ -128,6 +128,19 @@ $(document).ready(function() {
                     }
                 });
             }
+        });
+
+        $(".cetak-label").click(function (){
+            var data = $(this).data();
+            $.ajax({
+                url     : data.url,
+                type	: "GET",
+                dataType: "json",
+                success	: function(response){
+                    window.location.assign(response.service+":" +response.content)
+                },
+            });
+            return false;
         });
     });
 });

@@ -48,8 +48,7 @@ class PelayananController extends Controller
             /*Calculate*/
             $hitung = $order->kg * $order->harga;
             if ($request->disc != NULL) {
-                $disc = ($hitung * $order->disc) / 100;
-                $total = $hitung - $disc;
+                $total = $hitung - $request->disc;
                 $order->harga_akhir = $total;
             } else {
                 $order->harga_akhir = $hitung;
