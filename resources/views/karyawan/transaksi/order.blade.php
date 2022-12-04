@@ -77,6 +77,8 @@
                                 <a href="{{url('invoice-kar', $item->id)}}" class="btn btn-sm btn-warning" style="color:white">Invoice</a>
                               @endif
                             @endif
+
+                            <a href="{{url('cetak', $item->id)}}" target="_blank" class="btn btn-sm btn-info" style="color:white">Cetak Label</a>
                         </td>
                     </tr>
                     <?php $no++; ?>
