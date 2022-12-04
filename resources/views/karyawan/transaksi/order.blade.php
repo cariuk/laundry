@@ -134,7 +134,7 @@ $(document).ready(function() {
             var data = $(this).data();
 
             content = btoa('CetakLabelLandury|' . data.url + '|XP-80C|1|');
-            window.location.assign("printerservice:" +content)
+            window.location.assign("printerservices:" +content)
 
             return false;
         });
