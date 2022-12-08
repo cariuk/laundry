@@ -126,6 +126,8 @@
       <path value="$PROJECT_DIR$/vendor/laravel-notification-channels/telegram" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-escaper" />
       <path value="$PROJECT_DIR$/vendor/phpoffice/phpword" />
+      <path value="$PROJECT_DIR$/vendor/tinybutstrong/tinybutstrong" />
+      <path value="$PROJECT_DIR$/vendor/tinybutstrong/opentbs" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">

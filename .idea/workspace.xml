@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="fix: cetak langsung">
-      <change afterPath="$PROJECT_DIR$/.deploy/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/config/crontab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/config/nginx.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/config/php/local.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/config/supervisor.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/entrypoint.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="feat: add docker file">
+      <change beforePath="$PROJECT_DIR$/.idea/laundry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laundry.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -160,6 +161,8 @@
       <path value="$PROJECT_DIR$/vendor/laravel-notification-channels/telegram" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-escaper" />
       <path value="$PROJECT_DIR$/vendor/phpoffice/phpword" />
+      <path value="$PROJECT_DIR$/vendor/tinybutstrong/tinybutstrong" />
+      <path value="$PROJECT_DIR$/vendor/tinybutstrong/opentbs" />
     </include_path>
   </component>
   <component name="ProjectId" id="2H9GyHsJ90ugbxwc965d9KMFUJX" />
@@ -203,6 +206,7 @@
       <workItem from="1670110762826" duration="401000" />
       <workItem from="1670112099963" duration="7702000" />
       <workItem from="1670120044653" duration="329000" />
+      <workItem from="1670495942725" duration="1443000" />
     </task>
     <task id="LOCAL-00001" summary="faet: memisahkan table customer dan user, tambah order melalui menu customer">
       <created>1670119924224</created>
@@ -274,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670127781473</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat: add docker file">
+      <created>1670152386437</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670152386437</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +322,7 @@
     <MESSAGE value="feat: Cetak Label" />
     <MESSAGE value="feat: Update Cetak Label Cetak Langsung" />
     <MESSAGE value="fix: cetak langsung" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: cetak langsung" />
+    <MESSAGE value="feat: add docker file" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add docker file" />
   </component>
 </project>
