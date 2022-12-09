@@ -48,7 +48,6 @@ class CetakLabelTransaksiCustomerController extends Controller
         $reports = stripslashes($reports);
 
         return response()->json([
-            "status" => 200,
             "content" => $reports
         ]);
     }
