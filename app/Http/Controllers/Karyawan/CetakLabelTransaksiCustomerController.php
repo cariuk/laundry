@@ -50,10 +50,10 @@ class CetakLabelTransaksiCustomerController extends Controller
         $TBS->VarRef['nama'] = $invoice->customers->name ?? '';
         $TBS->VarRef['alamat'] = $invoice->customers->alamat ?? '';
         $TBS->VarRef['no_telp'] = $invoice->customers->no_telp ?? '';
-        $TBS->VarRef['tanggal_masuk'] = $invoice->created_at ?? '';
-        $TBS->VarRef['jenis_layanan'] = $invoice->price->jenis ?? '';
-        $TBS->VarRef['berat'] = $invoice->kg ?? '';
-        $TBS->VarRef['harga'] = $invoice->harga_akhir?? '';
+        $TBS->VarRef['tgl_masuk'] = (string) $invoice->created_at ?? '';
+        $TBS->VarRef['jenis_layanan'] = (string) $invoice->price->jenis ?? '';
+        $TBS->VarRef['berat'] = (string) $invoice->kg ?? '';
+        $TBS->VarRef['harga'] = (string) $invoice->harga_akhir?? '';
         $TBS->Show(OPENTBS_STRING);
         $reports = base64_encode($TBS->Source);
         $reports = stripslashes($reports);
