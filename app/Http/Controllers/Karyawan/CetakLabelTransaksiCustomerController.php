@@ -45,6 +45,7 @@ class CetakLabelTransaksiCustomerController extends Controller
         $TBS->VarRef['jenis_layanan'] = (string) $invoice->price->jenis ?? '';
         $TBS->VarRef['berat'] = (string) $invoice->kg ?? '';
         $TBS->VarRef['harga'] = (string) $invoice->harga_akhir?? '';
+        $TBS->VarRef['status_bayar'] = (string) $invoice->status_payment == "success" ? "Lunas" : "Pendding";
         $TBS->Show(OPENTBS_STRING);
         $reports = base64_encode($TBS->Source);
 
