@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="Perbaikan cetak">
+    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="fix: Perbaikan cetak">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/template/CetakLabelCucianFormat1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/template/CetakLabelCucianFormat1.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +203,7 @@
       <workItem from="1670110762826" duration="401000" />
       <workItem from="1670112099963" duration="7702000" />
       <workItem from="1670120044653" duration="329000" />
-      <workItem from="1670495942725" duration="4299000" />
+      <workItem from="1670495942725" duration="4843000" />
     </task>
     <task id="LOCAL-00001" summary="faet: memisahkan table customer dan user, tambah order melalui menu customer">
       <created>1670119924224</created>
@@ -311,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670557692781</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fix: Perbaikan cetak">
+      <created>1670558125012</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670558125012</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,6 +358,7 @@
     <MESSAGE value="feat: change" />
     <MESSAGE value="feat: change role" />
     <MESSAGE value="Perbaikan cetak" />
-    <option name="LAST_COMMIT_MESSAGE" value="Perbaikan cetak" />
+    <MESSAGE value="fix: Perbaikan cetak" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Perbaikan cetak" />
   </component>
 </project>

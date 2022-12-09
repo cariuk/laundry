@@ -13,24 +13,12 @@ class CetakLabelTransaksiCustomerController extends Controller
 {
     function request(Request $request)
     {
-//
-//        $templateProcessor = new TemplateProcessor($path);
-//        $templateProcessor->setValues([
-//            'laundry_nama' => 'Babussalam Laundry',
-//            'nama' => $invoice->customers->name,
-
-//        ]);
-//
-//        $output = storage_path('app/output/CetakLabelCucianFormat_'.$invoice->id.'.docx');
-//        $templateProcessor->saveAs($output);
-
-        $content = base64_encode('CetakThermal|' . $request->url . '|CetakThermal|1|');
+        $content = base64_encode('CetakLabelCucianFormat1|' . $request->url . '|CetakKartu|1|');
         $result = [
             "status" => 200,
             "service" => "printerservices",
             "url" => $request->url,
             "content" => $content,
-            "decode" => base64_decode($content),
         ];
 
         return response()->json($result);
