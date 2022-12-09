@@ -13,12 +13,13 @@ class CetakLabelTransaksiCustomerController extends Controller
 {
     function request(Request $request)
     {
-        $content = base64_encode('CetakLabelCucianFormat1|' . $request->url . '|CetakKartu|1|');
+        $content = base64_encode('CetakLabelCucianFormat1|' . $request->url . '|CetakThermal|1|');
         $result = [
             "status" => 200,
             "service" => "printerservices",
             "url" => $request->url,
             "content" => $content,
+            "decode" => base64_decode($content),
         ];
 
         return response()->json($result);
