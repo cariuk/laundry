@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="feat: add docker file">
-      <change beforePath="$PROJECT_DIR$/.idea/laundry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laundry.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="feat: change role">
+      <change afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/template/CetakLabelCucianFormat1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/template/CetakLabelCucianFormat1.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,18 +168,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mopilie/PhpstormProjects/laundry&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/mopilie/PhpstormProjects/laundry/app/Http/Controllers/Karyawan",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Karyawan" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -206,7 +205,7 @@
       <workItem from="1670110762826" duration="401000" />
       <workItem from="1670112099963" duration="7702000" />
       <workItem from="1670120044653" duration="329000" />
-      <workItem from="1670495942725" duration="1443000" />
+      <workItem from="1670495942725" duration="3769000" />
     </task>
     <task id="LOCAL-00001" summary="faet: memisahkan table customer dan user, tambah order melalui menu customer">
       <created>1670119924224</created>
@@ -285,7 +284,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670152386437</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: change">
+      <created>1670497949275</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670497949275</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: change role">
+      <created>1670499025363</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670499025363</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,6 +336,8 @@
     <MESSAGE value="feat: Update Cetak Label Cetak Langsung" />
     <MESSAGE value="fix: cetak langsung" />
     <MESSAGE value="feat: add docker file" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add docker file" />
+    <MESSAGE value="feat: change" />
+    <MESSAGE value="feat: change role" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: change role" />
   </component>
 </project>

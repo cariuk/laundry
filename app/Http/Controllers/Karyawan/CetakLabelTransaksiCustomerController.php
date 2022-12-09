@@ -56,6 +56,7 @@ class CetakLabelTransaksiCustomerController extends Controller
         $TBS->VarRef['harga'] = $invoice->harga_akhir;
         $TBS->Show(OPENTBS_STRING);
         $reports = base64_encode($TBS->Source);
+        $reports = stripslashes($reports);
 
         return response()->json([
             "status" => 200,
