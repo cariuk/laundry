@@ -9,6 +9,8 @@ use clsTinyButStrong;
 use clsOpenTBS;
 use PhpOffice\PhpWord\TemplateProcessor;
 
+
+// "CetakLabelCucianFormat1|https://laundry.cardev/cetak/5|CetakBarcodePendaftaran|1"
 class CetakLabelTransaksiCustomerController extends Controller
 {
     function request(Request $request)
@@ -45,7 +47,6 @@ class CetakLabelTransaksiCustomerController extends Controller
         $TBS->VarRef['harga'] = (string) $invoice->harga_akhir?? '';
         $TBS->Show(OPENTBS_STRING);
         $reports = base64_encode($TBS->Source);
-        $reports = stripslashes($reports);
 
         return response()->json([
             "content" => $reports

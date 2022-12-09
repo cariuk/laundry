@@ -4,6 +4,8 @@
     <list default="true" id="452900cb-1f07-49ff-b884-73e9b94c04e0" name="Changes" comment="fix: ganti cetak nama">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Karyawan/CetakLabelTransaksiCustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +205,7 @@
       <workItem from="1670110762826" duration="401000" />
       <workItem from="1670112099963" duration="7702000" />
       <workItem from="1670120044653" duration="329000" />
-      <workItem from="1670495942725" duration="5618000" />
+      <workItem from="1670495942725" duration="7734000" />
     </task>
     <task id="LOCAL-00001" summary="faet: memisahkan table customer dan user, tambah order melalui menu customer">
       <created>1670119924224</created>
@@ -338,7 +340,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670561030047</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix: ganti cetak nama">
+      <created>1670561243513</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1670561243513</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix: ganti cetak nama">
+      <created>1670561547891</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1670561547891</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
