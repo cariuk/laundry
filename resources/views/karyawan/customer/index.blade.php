@@ -37,6 +37,7 @@
                         <td>{{$item->alamat}}</td>
                         <td>
                           <a href=" {{url('customers', $item->id)}} " class="btn btn-sm btn-primary" style="color:white">Detail</a>
+                          <a href=" {{url('customers-edit', $item->id)}} " class="btn btn-sm btn-warning" style="color:white">Edit</a>
                           <a href=" {{url('add-order', $item->id)}} " class="btn btn-sm btn-info" style="color:white">Order</a>
                         </td>
                     </tr>

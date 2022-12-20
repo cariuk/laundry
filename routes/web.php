@@ -78,7 +78,9 @@ Route::middleware('auth')->group(function () {
         Route::get('customers', 'Karyawan\CustomerController@index');
         Route::get('customers/{id}', 'Karyawan\CustomerController@detail');
         Route::get('customers-create', 'Karyawan\CustomerController@create');
+        Route::get('customers-edit/{id}', 'Karyawan\CustomerController@edit');
         Route::post('customers-store', 'Karyawan\CustomerController@store');
+        Route::post('customers-update', 'Karyawan\CustomerController@update');
 
         // Filter
         Route::get('listharga', 'Karyawan\PelayananController@listharga');

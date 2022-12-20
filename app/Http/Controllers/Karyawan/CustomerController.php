@@ -36,10 +36,8 @@ class CustomerController extends Controller
     }
 
     // Create
-
     public function store(AddCustomerRequest $request)
     {
-
         try {
             DB::beginTransaction();
 
@@ -51,8 +49,7 @@ class CustomerController extends Controller
                 'name' => $request->name,
                 'status' => 'Active',
                 'no_telp' => $phone_number,
-                'alamat' => $request->alamat,
-                'password' => Hash::make($password)
+                'alamat' => $request->alamat
             ]);
 
             DB::commit();
@@ -64,10 +61,43 @@ class CustomerController extends Controller
         }
     }
 
-    // Store
+    public function update(AddCustomerRequest $request)
+    {
+        try {
+            DB::beginTransaction();
 
+            $phone_number = preg_replace('/^0/', '62', $request->no_telp);
+            $password = str::random(8);
+
+            $updateCustomer = Customer::where([
+                "id" => $request->id
+            ])->update([
+                'karyawan_id' => Auth::id(),
+                'name' => $request->name,
+                'status' => 'Active',
+                'no_telp' => $phone_number,
+                'alamat' => $request->alamat
+            ]);
+
+            DB::commit();
+            Session::flash('success', 'Customer Berhasil Diupdate !');
+            return redirect('customers');
+        } catch (ErrorException $e) {
+            DB::rollback();
+            throw new ErrorException($e->getMessage());
+        }
+    }
+
+
+    // Store
     public function create()
     {
         return view('karyawan.customer.create');
+    }
+
+    public function edit($customer)
+    {
+        $customer = Customer::where("id", $customer)->first();
+        return view('karyawan.customer.update', compact('customer'));
     }
 }

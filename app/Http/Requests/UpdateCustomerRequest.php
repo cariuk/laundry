@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class UpdateCustomerRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'id' => 'required',
+            'name' => 'required|max:25',
+            'alamat' => 'required',
+            'no_telp' => 'required|unique:users',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'id.required' => 'Id boleh kosong.',
+            'name.required' => 'Nama tidak boleh kosong.',
+            'name.unique' => 'Nama sudah digunakan.',
+            'name.max' => 'Nama tidak boleh lebih dari 50 karakter.',
+            'alamat.required' => 'Alamat tidak boleh kosong.',
+            'alamat.max' => 'Alamat tidak boleh lebih dari 50 karakter.',
+            'no_telp.required' => 'Nomor Telepon tidak boleh kosong.'
+        ];
+    }
+}
