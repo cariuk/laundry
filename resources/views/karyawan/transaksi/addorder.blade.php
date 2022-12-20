@@ -23,18 +23,7 @@
             @csrf
             <div class="form-body">
               <div class="row p-t-20">
-                  <div class="col-md-4">
-                      <div class="form-group has-success">
-                          <label class="control-label">No Transaksi</label>
-                          <input type="text" name="invoice" value="{{$newID}}" class="form-control @error('invoice') is-invalid @enderror" readonly>
-                          @error('invoice')
-                          <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                          @enderror
-                      </div>
-                  </div>
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                       <div class="form-group has-success">
                           <label class="control-label">Nama Customer</label>
                           <select name="customer_id" id="customer_id" class="form-control select2 @error('customer_id') is-invalid @enderror" >
@@ -50,7 +39,7 @@
                           @enderror
                       </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                       <div class="form-group has-success">
                           <label class="control-label">Tanggal Dan Waktu Masuk</label>
                           <input id="tanggal" type="datetime-local" class="form-control form-control-danger @error('tgl_masuk') is-invalid @enderror" value=" {{old('tgl_masuk')}} " name="tgl_masuk" placeholder="Tanggal Dan Waktu Masuk" autocomplete="off" >

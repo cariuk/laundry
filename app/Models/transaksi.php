@@ -31,6 +31,21 @@ class transaksi extends Model
         'jenis_pembayaran'
     ];
 
+    public static function generateInvoice($tgl_masuk)
+    {
+        $prefix = date('Ymd',strtotime($tgl_masuk));
+        $result = transaksi::where("invoice","like",$prefix."%")->first();
+        if ($result == null){
+            $result = $prefix.str_pad("1","3","0",STR_PAD_LEFT);
+        }else{
+            $result = str_replace($prefix,"",$result->invoice);
+            $result++;
+            $result = $prefix.str_pad($result,"3","0",STR_PAD_LEFT);
+        }
+
+        return $result;
+    }
+
     public function price()
     {
         return $this->belongsTo(harga::class, 'harga_id', 'id');

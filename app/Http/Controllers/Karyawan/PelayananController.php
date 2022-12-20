@@ -33,7 +33,7 @@ class PelayananController extends Controller
         try {
             DB::beginTransaction();
             $order = new transaksi();
-            $order->invoice = $request->invoice;
+            $order->invoice = transaksi::generateInvoice($request->tgl_masuk);
             $order->tgl_masuk = $request->tgl_masuk;
             $order->tgl_transaksi = Carbon::now()->parse($order->tgl_transaksi)->format('d-m-Y');
             $order->status_payment = $request->status_payment;
@@ -108,15 +108,10 @@ class PelayananController extends Controller
 
         $jenisPakaian = harga::where('user_id', Auth::id())->where('status', '1')->get();
 
-        $y = date('Y');
-        $number = mt_rand(1000, 9999);
-        // Nomor Form otomatis
-        $newID = $number . Auth::user()->id . '' . $y;
-        $tgl = date('d-m-Y');
-
         $cek_harga = harga::where('user_id', Auth::user()->id)->where('status', 1)->first();
         $cek_customer = Customer::select('id', 'karyawan_id')->count();
-        return view('karyawan.transaksi.addorder', compact('customer_id', 'customer', 'newID', 'cek_harga', 'cek_customer', 'jenisPakaian'));
+
+        return view('karyawan.transaksi.addorder', compact('customer_id', 'customer', 'cek_harga', 'cek_customer', 'jenisPakaian'));
     }
 
     // Edit Order
