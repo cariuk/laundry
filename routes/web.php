@@ -68,10 +68,13 @@ Route::middleware('auth')->group(function () {
 
     // Modul Karyawan
     Route::prefix('/')->middleware('role:Karyawan')->group(function () {
-        Route::resource('pelayanan', 'Karyawan\PelayananController');
+        Route::get('pelayanan', 'Karyawan\PelayananController@index')->name('pelayanan.index');
+        Route::post('pelayanan/update/{id}', 'Karyawan\PelayananController@update')->name('pelayanan.update');
+        Route::post('pelayanan/store', 'Karyawan\PelayananController@store')->name('pelayanan.store');
 
         // Transaksi
         Route::get('add-order/{customer?}', 'Karyawan\PelayananController@addorders');
+        Route::get('edit-order/{order}', 'Karyawan\PelayananController@editorders');
         Route::get('update-status-laundry', 'Karyawan\PelayananController@updateStatusLaundry');
 
         // Customer

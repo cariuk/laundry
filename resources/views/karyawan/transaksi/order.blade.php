@@ -81,6 +81,7 @@
                             @endif
 
                             <button data-id="{{$item->id}}" data-url="{{url('cetak', $item->id)}}" class="cetak-label btn btn-sm btn-info" style="color:white">Cetak Label</button>
+                            <a href="{{url('edit-order', $item->id)}}" class="btn btn-sm btn-primary" style="color:white">Edit</a>
                         </td>
                     </tr>
                     <?php $no++; ?>

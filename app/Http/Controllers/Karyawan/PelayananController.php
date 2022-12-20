@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Karyawan;
 
+use App\Http\Requests\UpdateOrderRequest;
 use carbon\carbon;
 use ErrorException;
 use Illuminate\Http\Request;
@@ -97,6 +98,77 @@ class PelayananController extends Controller
         }
     }
 
+    // Proses update order
+    public function update(UpdateOrderRequest $request)
+    {
+        /*Cek*/
+        $hargas = harga::where("id",$request->harga_id)->first();
+
+        try {
+            DB::beginTransaction();
+            $order = new transaksi();
+            $order->id = $request->id;
+            $order->exists = true;
+
+            $order->tgl_masuk = $request->tgl_masuk;
+            $order->status_payment = $request->status_payment;
+            $order->harga_id = $request->harga_id;
+            $order->user_id = Auth::user()->id;
+
+            $order->hari = $request->hari;
+            $order->kg = $request->kg;
+            $order->harga = $hargas->harga;
+            $order->disc = $request->disc;
+
+            /*Calculate*/
+            $hitung = $order->kg * $order->harga;
+            if ($request->disc != NULL) {
+                $total = $hitung - $request->disc;
+                $order->harga_akhir = $total;
+            } else {
+                $order->harga_akhir = $hitung;
+            }
+
+            $order->jenis_pembayaran = $request->jenis_pembayaran;
+            $order->save();
+
+            if ($order) {
+                // Notification Telegram
+                if (setNotificationTelegramIn(1) == 1) {
+                    $order->notify(new OrderMasuk());
+                }
+
+                // Notification email
+                if (setNotificationEmail(1) == 1) {
+                    // Menyiapkan data Email
+                    $bank = DataBank::get();
+                    $jenisPakaian = harga::where('id', $order->harga_id)->first();
+                    $data = array(
+                        'email' => $order->email_customer,
+                        'invoice' => $order->invoice,
+                        'customer' => $order->customer,
+                        'tgl_transaksi' => $order->tgl_transaksi,
+                        'pakaian' => $jenisPakaian->jenis,
+                        'berat' => $order->kg,
+                        'harga' => $order->harga,
+                        'harga_disc' => ($hitung * $order->disc) / 100,
+                        'disc' => $order->disc,
+                        'total' => $order->kg * $order->harga,
+                        'harga_akhir' => $order->harga_akhir,
+                        'laundry_name' => Auth::user()->nama_cabang,
+                        'bank' => $bank
+                    );
+                }
+                DB::commit();
+                Session::flash('success', 'Order Berhasil Ditambah !');
+                return redirect('pelayanan');
+            }
+        } catch (ErrorException $e) {
+            DB::rollback();
+            throw new ErrorException($e->getMessage());
+        }
+    }
+
     // Tambah Order
     public function addorders($customer_id = null)
     {
@@ -117,13 +189,16 @@ class PelayananController extends Controller
     // Edit Order
     public function editorders($order)
     {
-        $order = transaksi::where("id",$order)->first();
+        $order = transaksi::with(['customers','price','user'])->where("id",$order)->first();
+
+        $customer = Customer::where("id", $order->customers->id)->get();
 
         $jenisPakaian = harga::where('user_id', Auth::id())->where('status', '1')->get();
 
         $cek_harga = harga::where('user_id', Auth::user()->id)->where('status', 1)->first();
         $cek_customer = Customer::select('id', 'karyawan_id')->count();
-        return view('karyawan.transaksi.editorder', compact('order', 'cek_harga', 'cek_customer', 'jenisPakaian'));
+
+        return view('karyawan.transaksi.editorder', compact('order','customer', 'cek_harga', 'cek_customer', 'jenisPakaian'));
     }
 
     // Filter List Harga
