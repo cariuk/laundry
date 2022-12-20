@@ -12,6 +12,7 @@ class transaksi extends Model
     protected $fillable = [
         'customer_id',
         'user_id',
+        'tgl_masuk',
         'tgl_transaksi',
         'customer',
         'status_order',

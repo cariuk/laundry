@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title','Tambah Data Order')
+@section('title','Edit Data Order')
 @section('content')
     @if (@$cek_harga->user_id == !null || @$cek_harga->user_id == Auth::user()->id)
 

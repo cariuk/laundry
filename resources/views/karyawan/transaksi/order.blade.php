@@ -24,7 +24,8 @@
                     <tr>
                         <th>#</th>
                         <th>No Resi</th>
-                        <th>TGL Transaksi</th>
+                        <th>Tgl Masuk</th>
+                        <th>Tgl Transaksi</th>
                         <th>Customer</th>
                         <th>Status Laundry</th>
                         <th>Payment</th>
@@ -40,6 +41,7 @@
                     <tr>
                         <td>{{$no}}</td>
                         <td style="font-weight:bold; font-color:black">{{$item->invoice}}</td>
+                        <td>{{carbon\carbon::parse($item->tgl_masuk)->format('d-m-Y H:i:s')}}</td>
                         <td>{{carbon\carbon::parse($item->tgl_transaksi)->format('d-m-y')}}</td>
                         <td>{{$item->customer}}</td>
                         <td>

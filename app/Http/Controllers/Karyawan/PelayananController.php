@@ -34,6 +34,7 @@ class PelayananController extends Controller
             DB::beginTransaction();
             $order = new transaksi();
             $order->invoice = $request->invoice;
+            $order->tgl_masuk = $request->tgl_masuk;
             $order->tgl_transaksi = Carbon::now()->parse($order->tgl_transaksi)->format('d-m-Y');
             $order->status_payment = $request->status_payment;
             $order->harga_id = $request->harga_id;
@@ -116,6 +117,18 @@ class PelayananController extends Controller
         $cek_harga = harga::where('user_id', Auth::user()->id)->where('status', 1)->first();
         $cek_customer = Customer::select('id', 'karyawan_id')->count();
         return view('karyawan.transaksi.addorder', compact('customer_id', 'customer', 'newID', 'cek_harga', 'cek_customer', 'jenisPakaian'));
+    }
+
+    // Edit Order
+    public function editorders($order)
+    {
+        $order = transaksi::where("id",$order)->first();
+
+        $jenisPakaian = harga::where('user_id', Auth::id())->where('status', '1')->get();
+
+        $cek_harga = harga::where('user_id', Auth::user()->id)->where('status', 1)->first();
+        $cek_customer = Customer::select('id', 'karyawan_id')->count();
+        return view('karyawan.transaksi.editorder', compact('order', 'cek_harga', 'cek_customer', 'jenisPakaian'));
     }
 
     // Filter List Harga
